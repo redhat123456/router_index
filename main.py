@@ -9,10 +9,25 @@ CHANNEL_URL = 'https://www.youtube.com/playlist?list=PL0tDb4jw6kPwCDw0Ql9vTSD3Pc
 
 
 def fetch_videos():
-    ydl_opts = {'extract_flat': True, 'quiet': True, 'forcejson': True}
-    with yt_dlp.YoutubeDL(ydl_opts) as ydl:
+    flat_opts = {'extract_flat': True, 'quiet': True, 'forcejson': True}
+    with yt_dlp.YoutubeDL(flat_opts) as ydl:
         info = ydl.extract_info(CHANNEL_URL, download=False)
-        return info.get('entries', [])
+        entries = info.get('entries', [])
+        video_ids = [e['id'] for e in entries if 'id' in e]
+
+    # 获取每个视频的完整信息
+    full_videos = []
+    detail_opts = {'quiet': True, 'forcejson': True}
+    with yt_dlp.YoutubeDL(detail_opts) as ydl:
+        for vid in video_ids:
+            try:
+                info = ydl.extract_info(f'https://www.youtube.com/watch?v={vid}', download=False)
+                full_videos.append(info)
+            except Exception as e:
+                print(f"Error fetching video {vid}: {e}")
+    return full_videos
+
+
 
 
 def get_video_stats(video_id):
