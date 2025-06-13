@@ -175,7 +175,12 @@
             </tr>
           </ul>
           <HR>
-
+          <H2 style="COLOR: #2f4f4f">周更视频：📺 NBC Kids - Most Viewed This Week ({{ date }})</H2>
+          <h2><a href="{{ url }}" target="_blank">{{ title }}</a></h2>
+          <img src="thumb.jpg" alt="Thumbnail" width="480">
+          <footer>
+            🔁 Weekly auto-update · Sunday UTC 07:00 | Built with ❤️ by GitHub Actions
+          </footer>
 
           <P align="center">🚧正在维护和完善🚧</P>
 
@@ -189,5 +194,34 @@
 
   .non_point {
     list-style: none;
+  }
+
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f4f8;
+    margin: 0;
+    padding: 20px;
+    text-align: center;
+  }
+
+  h1 {
+    color: #1a73e8;
+  }
+
+  h2 a {
+    text-decoration: none;
+    color: #333;
+  }
+
+  img {
+    margin-top: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+
+  footer {
+    margin-top: 40px;
+    font-size: 0.9em;
+    color: #888;
   }
 </style>

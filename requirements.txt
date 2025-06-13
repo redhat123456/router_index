@@ -1,0 +1,3 @@
+yt-dlp
+jinja2
+requests
