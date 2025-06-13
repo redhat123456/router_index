@@ -5,7 +5,7 @@ from jinja2 import Template
 import os
 import requests
 
-CHANNEL_URL = 'https://www.youtube.com/@NBCNewsKids'
+CHANNEL_URL = 'https://www.youtube.com/playlist?list=PL0tDb4jw6kPwCDw0Ql9vTSD3Pc4Vd2EOn'
 
 
 def fetch_videos():
